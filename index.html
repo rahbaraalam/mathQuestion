@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0pc;
+        }
+        #container{
+            max-width: 400px;
+            background-color: rgb(108, 152, 191);
+            height: 100vh;
+            padding: 4em 2em;
+            margin: auto;
+        }
+        #score{
+            float: right;
+            font-size: 1.5em;
+            margin-bottom: 2em;
+            background-color: rgb(245, 159, 232);
+            padding: .2em .5em;
+            border-radius: 10px;
+            margin-top: 1em;
+        }
+        #question-box{
+            clear: both;
+            display: flex;
+            margin-bottom: 2em;
+            justify-content: center;
+        }
+        .box{
+            width: 80px;
+            height: 80px;
+            background-color: aquamarine;
+            margin-left: 5px;
+            font-size: 3em;
+            text-align: center;
+            line-height: 1.8;
+            color:black;
+            border-radius: 10px;
+        }
+        #ans-box{
+            display: flex;
+            justify-content: center;
+        }
+        .input{
+            width: 150px;
+            margin-right: 20px;
+            font-size: 20px;
+            outline: none;
+            padding: .3em;
+        }
+        .submit{
+            background-color: chartreuse;
+            border:none;
+            padding: .3em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        h1{
+            /* background-color: rgba(243, 243, 200, 0.905); */
+            font-family: 'Courier New', Courier, monospace;
+            padding: .2em;
+            border-radius: 4px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Let,s play</h1>
+        <div id="score"></div>
+        <div id="question-box">
+            <div id="box1" class="box"></div>
+            <div id="sign" class="box">+</div>
+            <div id="box2" class="box"></div>
+        </div>
+        <div id="ans-box">
+            <input type="text" id="input-ans" class="input">
+            <input type="submit" class="submit" onclick="check()">
+        </div>
+
+    </div>
+    <script>
+        let box1=Math.round(Math.random()*11)
+        document.querySelector("#box1").innerHTML=box1
+        let box2 = Math.round(Math.random()*11)
+        document.querySelector("#box2").innerHTML=box2
+        let add=box1+box2
+        let score=0;
+        function check(){
+            let inpvalue=document.querySelector("#input-ans").value 
+            for(let i=0;i==false;i++){
+            if(inpvalue==add){
+                
+                score+=1
+                document.querySelector("#score").innerHTML="score :"+ score 
+
+                let box1=Math.round(Math.random()*11)
+                document.querySelector("#box1").innerHTML=box1
+                let box2 = Math.round(Math.random()*11)
+                document.querySelector("#box2").innerHTML=box2
+                add=box1+box2    
+                // score = score +1                    
+            }
+            else{
+                document.querySelector("#score").innerHTML="Opps wrong , your score is :"+score;
+                score=0
+            }
+        }
+    }
+        
+        
+    </script>
+</body>
+</html>
